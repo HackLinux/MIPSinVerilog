@@ -1,0 +1,252 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Programs\altera\13.1
+vex
+Z1 !s100 >5nB?3dK;;WU=M83]M3QF0
+Z2 IFnCBT=4VzNi1ziVfE?PmC3
+Z3 V:m5ZU=^c16=mHMk8<0d>i1
+Z4 dC:\Users\HaoYuan\Desktop\project\MIPS\Simulate
+Z5 w1429587295
+Z6 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex.v
+Z7 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex.v
+L0 3
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex.v|
+Z10 o-work work -O0
+Z11 !s108 1429594764.782000
+Z12 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vex_mem
+Z13 !s100 I>MXcClOWTfUmK@CLRAi:1
+Z14 IGSV43QnWKMdZ6hH@gK`b`1
+Z15 V>n6E6PZ4QD9<`HMZ?0mb80
+R4
+Z16 w1429587303
+Z17 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex_mem.v
+Z18 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex_mem.v
+L0 3
+R8
+r1
+31
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex_mem.v|
+R10
+Z20 !s108 1429594764.852000
+Z21 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/ex_mem.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vid
+!i10b 1
+Z22 !s100 Og1=Ij8KEQ^Wl2EzIR4R03
+Z23 IDL_:GDFzUOR0E7Ul7YAZ63
+Z24 VDzgHBgk5a9WSJZo[cOo681
+R4
+Z25 w1429589157
+Z26 8C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\id.v
+Z27 FC:\Users\HaoYuan\Desktop\project\MIPS\Simulate\id.v
+L0 3
+R8
+r1
+!s85 0
+31
+!s108 1429594765.652000
+!s107 defs.v|C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\id.v|
+Z28 !s90 -reportprogress|300|-work|work|C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\id.v|
+!s101 -O0
+R10
+vid_ex
+Z29 !s100 c?kKb^fPoT63Qm?Ojbe1d3
+Z30 IAKB76Z?W[`aCBHTCSNaGC3
+Z31 V?TQL7]PR8M7:R]6G@2Jeb1
+R4
+Z32 w1429587286
+Z33 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/id_ex.v
+Z34 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/id_ex.v
+L0 3
+R8
+r1
+31
+Z35 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/id_ex.v|
+R10
+Z36 !s108 1429594764.926000
+Z37 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/id_ex.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vif_id
+Z38 !s100 TM`8@Pm0K@S^^NK77_WP:3
+Z39 IoXk<PRUQ?AXc[Cdo8BjEZ2
+Z40 V?WLjRa_B7]<n3H?;Wj]4V1
+R4
+Z41 w1429588673
+Z42 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/if_id.v
+Z43 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/if_id.v
+L0 3
+R8
+r1
+31
+Z44 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/if_id.v|
+R10
+Z45 !s108 1429594764.998000
+Z46 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/if_id.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vinst_rom
+Z47 !s100 `:4MH3<fRebc8CIKHifmV3
+Z48 IEa9d^=<LTd3eRORe@TJTb0
+Z49 Vdd?kfMiSGOL?c[K6=;BCO2
+R4
+Z50 w1429587772
+Z51 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/inst_rom.v
+Z52 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/inst_rom.v
+L0 3
+R8
+r1
+31
+Z53 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/inst_rom.v|
+R10
+Z54 !s108 1429594765.071000
+Z55 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/inst_rom.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vmem
+Z56 !s100 gUCKD8SD`TO:zB_]4fGO60
+Z57 Izb8:ZQS]z;=XBYn<oESO01
+Z58 V89BhUD:YfAz?:_0_@lB3c0
+R4
+Z59 w1429587312
+Z60 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem.v
+Z61 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem.v
+L0 3
+R8
+r1
+31
+Z62 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem.v|
+R10
+Z63 !s108 1429594765.144000
+Z64 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vmem_wb
+Z65 !s100 ohiAUUbg>Y<0=>Al]TCF33
+Z66 IfS716zCMSB<>D6=<HBZ8]3
+Z67 Vk;inc8m_6Z7BH]::2M>OI0
+R4
+Z68 w1429587319
+Z69 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem_wb.v
+Z70 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem_wb.v
+L0 3
+R8
+r1
+31
+Z71 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem_wb.v|
+R10
+Z72 !s108 1429594765.219000
+Z73 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/mem_wb.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vopenmips
+Z74 !s100 Yd31Z_oI`>cWOD2=lHQGz3
+Z75 I5?4VS3Vah<K;9Fgo?fK6]2
+Z76 VT9XabPN5[I[b^GDXFof[=1
+R4
+Z77 w1429587325
+Z78 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips.v
+Z79 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips.v
+L0 3
+R8
+r1
+31
+Z80 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips.v|
+R10
+Z81 !s108 1429594765.291000
+Z82 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vopenmips_min_sopc
+Z83 !s100 `01h>=MjT7GOXSb]=f^he1
+Z84 I;RoH=3Q<dX<VfMIh3L<cf1
+Z85 V>oQnH]7^FROW0cG3a6B;63
+R4
+Z86 w1429588120
+Z87 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc.v
+Z88 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc.v
+L0 3
+R8
+r1
+31
+Z89 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc.v|
+R10
+Z90 !s108 1429594765.361000
+Z91 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vopenmips_min_sopc_tb
+Z92 IZj;h[>jJ@EoCK_Ug4S?Xd0
+Z93 VjAlLFJz2iV<GeaoLO:T?d1
+R4
+Z94 w1429594761
+Z95 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc_tb.v
+Z96 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc_tb.v
+L0 4
+R8
+r1
+31
+Z97 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc_tb.v|
+R10
+Z98 !s100 G=iRT4a[H^CeK_lz6dA8a2
+Z99 !s108 1429594765.434000
+Z100 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/openmips_min_sopc_tb.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpc_reg
+Z101 !s100 X0P;;SV<bHeaS9bEGA[MZ1
+Z102 Iaz2M8;18S68FF`>95dYV43
+Z103 VK]mB7jecnjLzMW^lB7hDS0
+R4
+Z104 w1429587321
+Z105 8C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/pc_reg.v
+Z106 FC:/Users/HaoYuan/Desktop/project/MIPS/Simulate/pc_reg.v
+L0 3
+R8
+r1
+31
+Z107 !s90 -reportprogress|300|-work|work|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/pc_reg.v|
+R10
+Z108 !s108 1429594765.508000
+Z109 !s107 defs.v|C:/Users/HaoYuan/Desktop/project/MIPS/Simulate/pc_reg.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vregfile
+Z110 !s100 G7YFRPIDkOF]o_VlbbSM[3
+Z111 II99_N49GTNmSebUiUYfLU2
+Z112 VCc88GW:H2:IP]GcGWTbBo0
+R4
+Z113 w1429589048
+Z114 8C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\regfile.v
+Z115 FC:\Users\HaoYuan\Desktop\project\MIPS\Simulate\regfile.v
+L0 3
+R8
+r1
+31
+Z116 !s90 -reportprogress|300|-work|work|C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\regfile.v|
+R10
+!i10b 1
+!s85 0
+Z117 !s108 1429594765.585000
+Z118 !s107 defs.v|C:\Users\HaoYuan\Desktop\project\MIPS\Simulate\regfile.v|
+!s101 -O0
