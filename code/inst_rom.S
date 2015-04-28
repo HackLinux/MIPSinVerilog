@@ -12,3 +12,22 @@ _start:
 	xori $4, $1, 0xff00
 	xor $1, $4, $1
 	nor $1, $4, $1
+
+	lui $2, 0x0404
+	nop
+	nop
+	ori $2, $2, 0x0404
+	ori $7, $0, 0x7
+	ori $5, $0, 0x5
+	ori $8, $0, 0x8
+	sync
+	sll $2, $2, 8
+	sllv $2, $2, $7
+	srl $2, $2, 8
+	srlv $2, $2, $5
+	nop
+	pref 0x00, 0x00
+	sll $2, $2, 19
+	ssnop
+	sra $2, $2, 16
+	srav $2, $2, $8
