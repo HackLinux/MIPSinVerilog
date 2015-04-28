@@ -72,9 +72,9 @@ module id(
 								`EXE_OR : begin
 									wreg_o <= `WriteEnable;
 									aluop_o <= `EXE_OR_OP;
-									alusel_o <= EXE_RES_LOGIC;
+									alusel_o <= `EXE_RES_LOGIC;
 									reg1_read_o <= 1'b1;
-									reg2_read_o <= 1'b1
+									reg2_read_o <= 1'b1;
 									instvalid <= `InstValid;
 								end
 
@@ -175,7 +175,7 @@ module id(
 					alusel_o <= `EXE_RES_LOGIC;
 					reg1_read_o <= 1'b1;
 					reg2_read_o <= 1'b0;
-					imm <= {16'h0000, inst_i[15:0]};
+					imm <= {16'h0, inst_i[15:0]};
 					wd_o <= inst_i[20:16];
 					instvalid <= `InstValid;
 				end
@@ -197,7 +197,7 @@ module id(
 					alusel_o <= `EXE_RES_LOGIC;
 					reg1_read_o <= 1'b1;
 					reg2_read_o <= 1'b0;
-					imm <= (inst_i[15:0], 16'h0000};
+					imm <= {inst_i[15:0], 16'h0000};
 					wd_o <= inst_i[20:16];
 					instvalid <= `InstValid;
 				end
@@ -208,7 +208,7 @@ module id(
 					alusel_o <= `EXE_RES_NOP;
 					reg1_read_o <= 1'b0;
 					reg2_read_o <= 1'b0;
-					instvalid <= 'InstValid;
+					instvalid <= `InstValid;
 				end
 
 

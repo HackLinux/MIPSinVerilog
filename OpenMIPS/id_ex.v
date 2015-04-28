@@ -18,7 +18,7 @@ module id_ex(
 	output reg[`RegAddrBus] ex_wd,
 	output reg ex_wreg);
 
-	always @(*) begin
+	always @(posedge clk) begin
 		if (rst == `RstEnable) begin
 			ex_alusel <= `EXE_RES_NOP;
 			ex_aluop <= `EXE_NOP_OP;

@@ -59,10 +59,10 @@
 `define EXE_NOR_OP			8'b00100111
 `define EXE_NOP_OP			8'b00000000
 `define EXE_AND_OP			8'b00100100
-`define EXE_ANDI_OP			8'b01011001
-`define EXE_ORI_OP			8'b01011010
-`define EXE_XORI_OP			8'b01011011
-`define EXE_LUI_OP			8'b01011100
+//`define EXE_ANDI_OP			8'b01011001
+//`define EXE_ORI_OP			8'b01011010
+//`define EXE_XORI_OP			8'b01011011
+//`define EXE_LUI_OP			8'b01011100
 
 `define EXE_SLL_OP			8'b01111100
 //`define EXE_SLLV_OP			8'b00000100

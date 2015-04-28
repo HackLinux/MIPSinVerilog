@@ -32,7 +32,7 @@ module ex(
 				end
 
 				`EXE_NOR_OP : begin
-					logicout <= reg1_i | reg2_i;
+					logicout <= ~(reg1_i | reg2_i);
 				end
 
 				`EXE_XOR_OP : begin
@@ -86,7 +86,7 @@ module ex(
  			end
 
 			`EXE_RES_SHIFT : begin
-				wdata_o <= shiftput;
+				wdata_o <= shiftout;
 			end
 
  			default : begin
