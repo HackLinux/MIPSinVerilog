@@ -160,7 +160,7 @@ module openmips(
 		.wdata_o(ex_wdata_o),
 
 		.hi_i(hilo_hi_o),		.lo_i(hilo_lo_o),
-		.wb_whilo_i(wb_whilo_i)	.wb_hi_i(wb_hi_i),
+		.wb_whilo_i(wb_whilo_i),	.wb_hi_i(wb_hi_i),
 		.wb_lo_i(wb_lo_i),		.mem_whilo_i(mem_whilo_o),
 		.mem_hi_i(mem_hi_o),	.mem_lo_i(mem_lo_o),
 
@@ -176,10 +176,10 @@ module openmips(
 		.ex_wdata(ex_wdata_o),
 
 		.mem_wd(mem_wd_i),		.mem_wreg(mem_wreg_i),
-		.mem_wdata(mem_wdata_i)
+		.mem_wdata(mem_wdata_i),
 
 		.ex_whilo(ex_whilo_o),	.ex_hi(ex_hi_o),
-		.ex_lo(ex_lo_o)
+		.ex_lo(ex_lo_o),
 
 		.mem_whilo(mem_whilo_i), .mem_hi(mem_hi_i),
 		.mem_lo(mem_lo_o));
@@ -192,7 +192,7 @@ module openmips(
 		.wdata_i(mem_wdata_i),
 
 		.wd_o(mem_wd_o),		.wreg_o(mem_wreg_o),
-		.wdata_o(mem_wdata_o)
+		.wdata_o(mem_wdata_o),
 
 		.whilo_i(mem_whilo_i),	.hi_i(mem_hi_i),
 		.lo_i(mem_lo_i),
