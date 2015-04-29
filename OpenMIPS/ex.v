@@ -9,13 +9,33 @@ module ex(
  	input wire[`RegAddrBus] wd_i,
  	input wire wreg_i,
 
+ 	input wire[`RegBus] hi_i,
+ 	input wire[`RegBus] lo_i,
+
+ 	input wire[`RegBus] wb_hi_i,
+ 	input wire[`RegBus] wb_lo_i,
+ 	input wire	wb_whilo_i,
+
+ 	input wire[`RegBus] mem_hi_i,
+ 	input wire[`RegBus] mem_lo_i,
+ 	input wire 	mem_whilo_i,
+
+
+
+ 	output reg[`RegBus] hi_o,
+ 	output reg[`RegBus] lo_o,
+ 	output reg whilo_o,
 
  	output reg[`RegAddrBus] wd_o,
  	output reg  wreg_o,
  	output reg[`RegBus] wdata_o);
 
+
  	reg[`RegBus] logicout;
 	reg[`RegBus] shiftout;
+	reg[`RegBus] moveout;
+	reg[`RegBus] HI;
+	reg[`RegBus] LO;
 
 	//Logic Result
  	always @(*) begin
@@ -74,6 +94,70 @@ module ex(
 
 
 
+	//get new HI LO
+	always @(*) begin
+		if (rst == `RstEnable) begin
+			{HI, LO} = {`ZeroWord, `ZeroWord};
+		end else if (mem_whilo_i == `WriteEnable) begin
+			{HI, LO} = {mem_hi_i, mem_lo_i};
+		end else if (wb_whilo_i == `WriteEnable) begin
+			{HI, LO} = {wb_hi_i, wb_lo_i};
+		end else begin
+			{HI, LO} = {hi_i, lo_i};
+		end
+	end
+
+
+
+	//MFHI, MFLO, MOVN, MOVZ
+	always @(*) begin
+		// moveout <= `ZeroWord
+		if (rst == `RstEnable) begin
+			moveout <= `ZeroWord;
+		end else begin
+			moveout <= `ZeroWord;
+			case (aluop_i)
+				`EXE_MFHI_OP : begin
+					moveout <= HI;
+				end
+
+				`EXE_MFLO_OP : begin
+					moveout <= LO;
+				end
+
+				`EXE_MOVZ_OP : begin
+					moveout <= reg1_i;
+				end
+
+				`EXE_MOVN_OP : begin
+					moveout <= reg1_i;
+				end
+
+				default : begin
+				end
+			endcase
+		end
+	end
+
+
+
+	always @(*) begin
+		if (rst == `RstEnable) begin
+			whilo_o <= `WriteDisable;
+			{hi_o, lo_o} <= {`ZeroWord, `ZeroWord};
+		end else if (aluop_i == `EXE_MTHI_OP) begin
+			whilo_o <= `WriteEnable;
+			{hi_o, lo_o} = {reg1_i, LO};
+		end else if (aluop_i == `EXE_MTLO_OP) begin
+			whilo_o <= `WriteEnable;
+			{hi_o, lo_o} = {HI, reg1_i};
+		end else begin
+			whilo_o <= `WriteDisable;
+			{hi_o, lo_o} <= {`ZeroWord, `ZeroWord};
+		end
+	end
+
+
 
 	//Select output
  	always @(*) begin
@@ -87,6 +171,10 @@ module ex(
 
 			`EXE_RES_SHIFT : begin
 				wdata_o <= shiftout;
+			end
+
+			`EXE_RES_MOVE : begin
+				wdata_o <= moveout;
 			end
 
  			default : begin

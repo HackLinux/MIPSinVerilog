@@ -52,6 +52,13 @@
 
 `define EXE_SYNC			6'b001111
 
+`define EXE_MOVZ			6'b001010
+`define EXE_MOVN			6'b001011
+`define EXE_MFHI			6'b010000
+`define EXE_MTHI			6'b010001
+`define EXE_MFLO			6'b010010
+`define EXE_MTLO			6'b010011
+
 
 //ALU Operations
 `define EXE_OR_OP			8'b00100101
@@ -59,6 +66,13 @@
 `define EXE_NOR_OP			8'b00100111
 `define EXE_NOP_OP			8'b00000000
 `define EXE_AND_OP			8'b00100100
+
+`define EXE_MOVZ			6'b001010
+`define EXE_MOVN			6'b001011
+`define EXE_MFHI			6'b010000
+`define EXE_MTHI			6'b010001
+`define EXE_MFLO			6'b010010
+`define EXE_MTLO			6'b010011
 //`define EXE_ANDI_OP			8'b01011001
 //`define EXE_ORI_OP			8'b01011010
 //`define EXE_XORI_OP			8'b01011011
@@ -74,6 +88,7 @@
 //ALU Sel
 `define EXE_RES_LOGIC 		3'b001
 `define EXE_RES_SHIFT		3'b010
+`define EXE_RES_MOVE		3'b011
 `define EXE_RES_NOP 		3'b000
 
 
