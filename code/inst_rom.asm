@@ -4,34 +4,24 @@ inst_rom.om:     file format elf32-tradbigmips
 Disassembly of section .text:
 
 00000000 <_start>:
-   0:	3c010101 	lui	at,0x101
-   4:	34210101 	ori	at,at,0x101
-   8:	34221100 	ori	v0,at,0x1100
-   c:	00220825 	or	at,at,v0
-  10:	302300fe 	andi	v1,at,0xfe
-  14:	00610824 	and	at,v1,at
-  18:	3824ff00 	xori	a0,at,0xff00
-  1c:	00810826 	xor	at,a0,at
-  20:	00810827 	nor	at,a0,at
-  24:	3c020404 	lui	v0,0x404
-	...
-  30:	34420404 	ori	v0,v0,0x404
-  34:	34070007 	li	a3,0x7
-  38:	34050005 	li	a1,0x5
-  3c:	34080008 	li	t0,0x8
-  40:	0000000f 	sync
-  44:	00021200 	sll	v0,v0,0x8
-  48:	00e21004 	sllv	v0,v0,a3
-  4c:	00021202 	srl	v0,v0,0x8
-  50:	00a21006 	srlv	v0,v0,a1
-  54:	00000000 	nop
-  58:	cc000000 	pref	0x0,0(zero)
-  5c:	000214c0 	sll	v0,v0,0x13
-  60:	00000040 	ssnop
-  64:	00021403 	sra	v0,v0,0x10
-  68:	01021007 	srav	v0,v0,t0
+   0:	3c010000 	lui	at,0x0
+   4:	3c02ffff 	lui	v0,0xffff
+   8:	3c030505 	lui	v1,0x505
+   c:	3c040000 	lui	a0,0x0
+  10:	0041200a 	movz	a0,v0,at
+  14:	0061200b 	movn	a0,v1,at
+  18:	0062200b 	movn	a0,v1,v0
+  1c:	0043200a 	movz	a0,v0,v1
+  20:	00000011 	mthi	zero
+  24:	00400011 	mthi	v0
+  28:	00600011 	mthi	v1
+  2c:	00002010 	mfhi	a0
+  30:	00600013 	mtlo	v1
+  34:	00400013 	mtlo	v0
+  38:	00200013 	mtlo	at
+  3c:	00002012 	mflo	a0
 Disassembly of section .reginfo:
 
 00000000 <.reginfo>:
-   0:	000001be 	0x1be
+   0:	0000001e 	0x1e
 	...
