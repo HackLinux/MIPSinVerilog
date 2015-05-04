@@ -51,7 +51,7 @@ module ex(
 
 	assign reg2_i_mux = ((aluop_i == `EXE_SUB_OP) || 
 							(aluop_i == `EXE_SUBU_OP) || 
-							(aluop_i == `EXE_SLT_OP)) ? (~reg2_i) + 1 : reg2_i;
+							(aluop_i == `EXE_SLT_OP)) ? (~reg2_i + 1) : reg2_i;
 
 	assign result_sum = reg1_i + reg2_i_mux;
 
@@ -159,23 +159,27 @@ module ex(
 		end
 	end
 
-	//mathout x
+	// mathout x
 	assign opdata1_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP))
 							&& (reg1_i[31] == 1'b1)) ? (~reg1_i + 1) : reg1_i;
-	assign opdata1_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP))
+	assign opdata2_mult = (((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP))
 							&& (reg2_i[31] == 1'b1)) ? (~reg2_i + 1) : reg2_i;
 
 	assign hilo_temp = opdata1_mult * opdata2_mult;
 
-	always @(*) begin
+  	always @(*) begin
 		if (rst == `RstEnable) begin
 			mulres <= {`ZeroWord, `ZeroWord};
 		end else if((aluop_i == `EXE_MULT_OP) || (aluop_i == `EXE_MUL_OP)) begin
-			mulres <= ~hilo_temp + 1;
+			if (reg1_i[31] ^ reg2_i[31] == 1'b1) begin
+				mulres <= ~hilo_temp + 1;
+			end else begin
+				mulres <= hilo_temp;
+			end
 		end else begin
 			mulres <= hilo_temp;
 		end
-	end
+	end																
 
 	//Logic Result
  	always @(*) begin
@@ -285,7 +289,7 @@ module ex(
 		if (rst == `RstEnable) begin
 			whilo_o <= `WriteDisable;
 			{hi_o, lo_o} <= {`ZeroWord, `ZeroWord};
-		end else if ((aluop_i == `EXE_MUL_OP) || (aluop_i == `EXE_MULT_OP)) begin
+		end else if ((aluop_i == `EXE_MULTU_OP) || (aluop_i == `EXE_MULT_OP)) begin
 			whilo_o <= `WriteEnable;
 			hi_o <= mulres[63:32];
 			lo_o <= mulres[31:0];

@@ -270,7 +270,7 @@ module id(
 								`EXE_MULT : begin
 									wreg_o	<= `WriteDisable;
 									aluop_o <= `EXE_MULT_OP;
-									alusel_o <= `EXE_RES_MUL;
+									// alusel_o <= `EXE_RES_MUL;
 									reg1_read_o <= 1'b1;
 									reg2_read_o <= 1'b1;
 									instvalid <= `InstValid;
@@ -279,7 +279,7 @@ module id(
 								`EXE_MULTU : begin
 									wreg_o	<= `WriteDisable;
 									aluop_o <= `EXE_MULTU_OP;
-									alusel_o <= `EXE_RES_MUL;
+									// alusel_o <= `EXE_RES_MUL;
 									reg1_read_o <= 1'b1;
 									reg2_read_o <= 1'b1;
 									instvalid <= `InstValid;
