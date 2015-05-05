@@ -13,6 +13,8 @@
 `define False_v				1'b0
 `define ChipEnable			1'b1
 `define ChipDisable			1'b0
+`define Stop 				1'b1
+`define NoStop 				1'b0
 
 
 /****************************Something about instrctions***************/
@@ -79,6 +81,12 @@
 `define EXE_MUL 			6'b000010
 
 
+`define EXE_MADD 			6'b000000
+`define EXE_MADDU 			6'b000001
+`define EXE_MSUB 			6'b000100
+`define EXE_MSUBU 			6'b000101
+
+
 //ALU Operations
 `define EXE_OR_OP			8'b00100101
 `define EXE_XOR_OP			8'b00100110
@@ -121,6 +129,12 @@
 `define EXE_MULT_OP  8'b00011000
 `define EXE_MULTU_OP  8'b00011001
 `define EXE_MUL_OP  8'b10101001
+
+`define EXE_MADD_OP  8'b10100110
+`define EXE_MADDU_OP  8'b10101000
+`define EXE_MSUB_OP  8'b10101010
+`define EXE_MSUBU_OP  8'b10101011
+
 
 // `define EXE_SLT_OP
 // `define EXE_SLTU_OP

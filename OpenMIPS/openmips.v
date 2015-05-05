@@ -8,6 +8,8 @@ module openmips(
 	output wire[`RegBus] rom_addr_o,
 	output wire rom_ce_o);
 
+
+
 	//if/id <-> id
 	wire[`InstAddrBus] pc;
 	wire[`InstAddrBus] id_pc_i;
@@ -20,6 +22,7 @@ module openmips(
 	wire[`RegBus] id_reg2_o;
 	wire[`RegAddrBus] id_wd_o;
 	wire id_wreg_o;
+	wire pause_req_id;
 
 	//id/ex <-> ex
 	wire[`AluOpBus] ex_aluop_i;
@@ -28,6 +31,8 @@ module openmips(
 	wire[`RegBus] ex_reg2_i;
 	wire[`RegAddrBus] ex_wd_i;
 	wire ex_wreg_i;
+	wire ex_cnt_o;
+	wire[`DoubleRegBus] ex_hilo_temp_o;
 
 	//ex <-> ex/mem
 	wire ex_wreg_o;
@@ -36,6 +41,9 @@ module openmips(
 	wire ex_whilo_o;
 	wire[`RegBus] ex_hi_o;
 	wire[`RegBus] ex_lo_o;
+	wire pause_req_ex;
+	wire exmem_cnt_o;
+	wire[`DoubleRegBus] exmem_hilo_o;
 
 	//ex/mem <-> mem
 	wire mem_wreg_i;
@@ -73,13 +81,24 @@ module openmips(
 	wire[`RegBus] hilo_hi_o;
 	wire[`RegBus] hilo_lo_o;
 
+	//ctrl module
+	wire[5:0] pause_line;
+
+	ctrl ctrl0(
+		.rst(rst),
+		.pausereq_id(pause_req_id),
+		.pausereq_ex(pause_req_ex),
+
+		.pause(pause_line));
+
 
 	//pc_reg
 	pc_reg pc_reg0(
 		.clk(clk),
 		.rst(rst),
 		.pc(pc),
-		.ce(rom_ce_o));
+		.ce(rom_ce_o),
+		.pause(pause_line));
 
 
 
@@ -105,7 +124,8 @@ module openmips(
 		.if_pc(pc),
 		.if_inst(rom_data_i),
 		.id_pc(id_pc_i),
-		.id_inst(id_inst_i));
+		.id_inst(id_inst_i),
+		.pause(pause_line));
 
 	//id
 	id id0(
@@ -124,7 +144,8 @@ module openmips(
 
 		.aluop_o(id_aluop_o),	.alusel_o(id_alusel_o),
 		.reg1_o(id_reg1_o),		.reg2_o(id_reg2_o),
-		.wd_o(id_wd_o),			.wreg_o(id_wreg_o));
+		.wd_o(id_wd_o),			.wreg_o(id_wreg_o),
+		.pausereq_id(pause_req_id));
 
 	//regs
 	regfile regfile1(
@@ -145,7 +166,9 @@ module openmips(
 
 		.ex_aluop(ex_aluop_i),	.ex_alusel(ex_alusel_i),
 		.ex_reg1(ex_reg1_i),	.ex_reg2(ex_reg2_i),
-		.ex_wd(ex_wd_i),		.ex_wreg(ex_wreg_i)
+		.ex_wd(ex_wd_i),		.ex_wreg(ex_wreg_i),
+
+		.pause(pause_line)
 		);
 
 	//ex
@@ -165,7 +188,11 @@ module openmips(
 		.mem_hi_i(mem_hi_o),	.mem_lo_i(mem_lo_o),
 
 		.whilo_o(ex_whilo_o),	.hi_o(ex_hi_o),
-		.lo_o(ex_lo_o)
+		.lo_o(ex_lo_o),
+
+		.pausereq_ex(pause_req_ex), .hilo_temp_i(exmem_hilo_o),
+		.cnt_i(exmem_cnt_o),	.hilo_temp_o(ex_hilo_temp_o),
+		.cnt_o(ex_cnt_o)
 		);
 
 	//ex/mem
@@ -182,7 +209,11 @@ module openmips(
 		.ex_lo(ex_lo_o),
 
 		.mem_whilo(mem_whilo_i), .mem_hi(mem_hi_i),
-		.mem_lo(mem_lo_o));
+		.mem_lo(mem_lo_o),
+
+		.pause(pause_line),		.hilo_i(ex_hilo_temp_o),
+		.cnt_i(ex_cnt_o),		.hilo_o(exmem_hilo_o),
+		.cnt_o(exmem_cnt_o));
 
 	//mem
 	mem mem0(
@@ -214,6 +245,8 @@ module openmips(
 		.mem_lo(mem_lo_o),
 
 		.wb_whilo(wb_whilo_i),		.wb_hi(wb_hi_i),
-		.wb_lo(wb_lo_i));
+		.wb_lo(wb_lo_i),
+
+		.pause(pause_line));
 
 endmodule
