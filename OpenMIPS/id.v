@@ -57,6 +57,7 @@ module id(
 			reg1_addr_o <= `NOPRegAddr;
 			reg2_addr_o <= `NOPRegAddr;
 			imm <= 32'h00;
+			pausereq_id <= `NoStop;
 		end else begin
 			aluop_o <= `EXE_NOP_OP;
 			alusel_o <= `EXE_RES_NOP;

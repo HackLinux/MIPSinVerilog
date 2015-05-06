@@ -63,9 +63,9 @@ module ex(
 	reg[`DoubleRegBus] hilo_temp1;
 	reg pausereq_madd_msub;
 
-	always @(*) begin
-		pausereq_ex <= `NoStop;
-	end
+	// always @(*) begin
+	// 	pausereq_ex <= `NoStop;
+	// end
 
 	assign reg2_i_mux = ((aluop_i == `EXE_SUB_OP) || 
 							(aluop_i == `EXE_SUBU_OP) || 
@@ -246,8 +246,12 @@ module ex(
 		end
 	end
 
-	always @(*) begin
-		pausereq_ex = pausereq_madd_msub;
+	always @(pausereq_madd_msub) begin
+		if (rst == `RstEnable) begin
+			pausereq_ex <= `NoStop;
+		end else begin
+			pausereq_ex <= pausereq_madd_msub;
+		end
 	end
 
 	//Logic Result
@@ -358,7 +362,7 @@ module ex(
 		if (rst == `RstEnable) begin
 			whilo_o <= `WriteDisable;
 			{hi_o, lo_o} <= {`ZeroWord, `ZeroWord};
-		end else if ((aluop_i == `EXE_MSUB_OP) ||　(aluop_i == `EXE_MSUBU_OP)) begin
+		end else if ((aluop_i == `EXE_MSUB_OP) || (aluop_i == `EXE_MSUBU_OP)) begin
 			whilo_o <= `WriteEnable;
 			{hi_o, lo_o} <= hilo_temp1;
 		end else if ((aluop_i == `EXE_MADD_OP) || (aluop_i == `EXE_MADDU_OP)) begin

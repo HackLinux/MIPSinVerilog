@@ -31,7 +31,7 @@ module openmips(
 	wire[`RegBus] ex_reg2_i;
 	wire[`RegAddrBus] ex_wd_i;
 	wire ex_wreg_i;
-	wire ex_cnt_o;
+	wire[1:0] ex_cnt_o;
 	wire[`DoubleRegBus] ex_hilo_temp_o;
 
 	//ex <-> ex/mem
@@ -42,7 +42,7 @@ module openmips(
 	wire[`RegBus] ex_hi_o;
 	wire[`RegBus] ex_lo_o;
 	wire pause_req_ex;
-	wire exmem_cnt_o;
+	wire[1:0] exmem_cnt_o;
 	wire[`DoubleRegBus] exmem_hilo_o;
 
 	//ex/mem <-> mem
