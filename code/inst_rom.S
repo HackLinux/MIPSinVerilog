@@ -3,14 +3,11 @@
 .set noat
 
 _start:
-	ORI $1, $0, 0xFFFF
-	SLL $1, $1, 16
-	ORI $1, $1, 0xFFFB
-	ORI $2, $0, 6
+	ori $2, $0, 0xffff
+	sll $2, $2, 16
+	ori $2, $2, 0xfff1
+	ori $3, $0, 0x11
 
-
-	MULT $1, $2
-	MADD $1, $2
-	MADDU $1, $2
-	MSUB $1, $2
-	MSUBU $1, $2
+	div $zero, $2, $3
+	divu $zero, $2, $3
+	div $zero, $3, $2
