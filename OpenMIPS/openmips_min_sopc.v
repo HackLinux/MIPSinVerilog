@@ -253,6 +253,37 @@ module openmips_min_sopc(
 		m3_we_i(1'b0), 					m3_cyc_i(1'b0),
 		m3_stb_i(1'b0), 				m3_ack_o(), 
 		m3_err_o(), 					m3_rty_o(),
+        
+        		m4_data_i(`ZeroWord),			m4_data_o(), 
+				m4_addr_i(`ZeroWord),			m4_sel_i(4'b0000), 
+						m4_we_i(1'b0),					m4_cyc_i(1'b0),
+								m4_stb_i(1'b0),					m4_ack_o(), 
+										m4_err_o(),						m4_rty_o(),
+                                        
+                                        
+		m5_data_i(`ZeroWord),			m5_data_o(), 
+				m5_addr_i(`ZeroWord),			m5_sel_i(4'b0000), 
+						m5_we_i(1'b0),					m5_cyc_i(1'b0),
+								m5_stb_i(1'b0),					m5_ack_o(), 
+										m5_err_o(),						m5_rty_o(),
+                                        
+                                        
+		m6_data_i(`ZeroWord),			m6_data_o(), 
+				m6_addr_i(`ZeroWord),			m6_sel_i(4'b0000), 
+						m6_we_i(1'b0),					m6_cyc_i(1'b0),
+								m6_stb_i(1'b0),					m6_ack_o(), 
+										m6_err_o(),						m6_rty_o(),
+                                        
+                                        
+		m7_data_i(`ZeroWord),			m7_data_o(), 
+				m7_addr_i(`ZeroWord),			m7_sel_i(4'b0000), 
+						m7_we_i(1'b0),					m7_cyc_i(1'b0),
+								m7_stb_i(1'b0),					m7_ack_o(), 
+										m7_err_o(),						m7_rty_o(),
+
+
+
+
 
 
 	s1_data_i(), s1_data_o(), s1_addr_o(), s1_sel_o(), s1_we_o(), s1_cyc_o(),
