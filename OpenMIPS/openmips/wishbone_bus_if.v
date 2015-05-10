@@ -22,7 +22,7 @@ module wishbone_bus_if(
 	output reg 					wishbone_we_o,
 	output reg[3:0]				wishbone_sel_o,
 	output reg 					wishbone_stb_o,
-	output reg 					wishbone_cyc_o
+	output reg 					wishbone_cyc_o,
 
 	output reg 					stallreq
 	);
@@ -107,7 +107,7 @@ module wishbone_bus_if(
 			stallreq <= `NoStop;
 			case(wishbone_status)
 				`WB_IDLE : begin
-					if ((cpu_ce_i == 1'b1) &&　(flush_i == `False_v)) begin
+					if ((cpu_ce_i == 1'b1) && (flush_i == `False_v)) begin
 						stallreq <= `Stop;
 						cpu_data_o <= `ZeroWord;
 					end

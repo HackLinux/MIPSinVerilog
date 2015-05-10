@@ -27,6 +27,40 @@ module cp0_reg(
 	output reg					timer_int_o
 );
 
+
+	
+	always @ (*) begin
+		if(rst == `RstEnable) begin
+			data_o <= `ZeroWord;
+		end else begin
+				case (raddr_i) 
+					`CP0_REG_COUNT:		begin
+						data_o <= count_o ;
+					end
+					`CP0_REG_COMPARE:	begin
+						data_o <= compare_o ;
+					end
+					`CP0_REG_STATUS:	begin
+						data_o <= status_o ;
+					end
+					`CP0_REG_CAUSE:	begin
+						data_o <= cause_o ;
+					end
+					`CP0_REG_EPC:	begin
+						data_o <= epc_o ;
+					end
+					`CP0_REG_PrId:	begin
+						data_o <= prid_o ;
+					end
+					`CP0_REG_CONFIG:	begin
+						data_o <= config_o ;
+					end	
+					default: 	begin
+					end
+				endcase
+		end
+	end
+
 	always @ (posedge clk) begin
 		if(rst == `RstEnable) begin
 			count_o <= `ZeroWord;
@@ -140,36 +174,5 @@ module cp0_reg(
 			
 		end
 	end
-			
-	always @ (*) begin
-		if(rst == `RstEnable) begin
-			data_o <= `ZeroWord;
-		end else begin
-				case (raddr_i) 
-					`CP0_REG_COUNT:		begin
-						data_o <= count_o ;
-					end
-					`CP0_REG_COMPARE:	begin
-						data_o <= compare_o ;
-					end
-					`CP0_REG_STATUS:	begin
-						data_o <= status_o ;
-					end
-					`CP0_REG_CAUSE:	begin
-						data_o <= cause_o ;
-					end
-					`CP0_REG_EPC:	begin
-						data_o <= epc_o ;
-					end
-					`CP0_REG_PrId:	begin
-						data_o <= prid_o ;
-					end
-					`CP0_REG_CONFIG:	begin
-						data_o <= config_o ;
-					end	
-					default: 	begin
-					end
-				endcase
-		end
-	end
+
 endmodule

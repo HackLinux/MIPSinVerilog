@@ -678,7 +678,7 @@ module id(
 	
 
 	always @ (*) begin
-			stallreq_for_reg1_loadrelate <= `NoStop;	
+		stallreq_for_reg1_loadrelate <= `NoStop;	
 		if(rst == `RstEnable) begin
 			reg1_o <= `ZeroWord;	
 		end else if(pre_inst_is_load == 1'b1 && ex_wd_i == reg1_addr_o 
