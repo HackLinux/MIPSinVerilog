@@ -60,7 +60,7 @@ module mem_wb(
 			wb_hi <= `ZeroWord;
 			wb_lo <= `ZeroWord;
 			wb_whilo <= `WriteDisable;
-			wireb_LLbit_we <= 1'b0;
+			wb_LLbit_we <= 1'b0;
 			wb_LLbit_value <= 1'b0;	
 			wb_cp0_reg_we <= `WriteDisable;
 			wb_cp0_reg_write_addr <= 5'b00000;
