@@ -247,59 +247,146 @@ module openmips_min_sopc(
 		m2_stb_i(1'b0), 				m2_ack_o(), 
 		m2_err_o(), 					m2_rty_o(),
 
+		m3_data_i(`ZeroWord), 			m3_data_o(), 
+		m3_addr_i(`ZeroWord), 			m3_sel_i(4'b0000), 
+		m3_we_i(1'b0), 					m3_cyc_i(1'b0),
+		m3_stb_i(1'b0), 				m3_ack_o(), 
+		m3_err_o(), 					m3_rty_o(),
 
 		m3_data_i(`ZeroWord), 			m3_data_o(), 
 		m3_addr_i(`ZeroWord), 			m3_sel_i(4'b0000), 
 		m3_we_i(1'b0), 					m3_cyc_i(1'b0),
 		m3_stb_i(1'b0), 				m3_ack_o(), 
 		m3_err_o(), 					m3_rty_o(),
-        
-        		m4_data_i(`ZeroWord),			m4_data_o(), 
-				m4_addr_i(`ZeroWord),			m4_sel_i(4'b0000), 
-						m4_we_i(1'b0),					m4_cyc_i(1'b0),
-								m4_stb_i(1'b0),					m4_ack_o(), 
-										m4_err_o(),						m4_rty_o(),
-                                        
-                                        
-		m5_data_i(`ZeroWord),			m5_data_o(), 
-				m5_addr_i(`ZeroWord),			m5_sel_i(4'b0000), 
-						m5_we_i(1'b0),					m5_cyc_i(1'b0),
-								m5_stb_i(1'b0),					m5_ack_o(), 
-										m5_err_o(),						m5_rty_o(),
-                                        
-                                        
-		m6_data_i(`ZeroWord),			m6_data_o(), 
-				m6_addr_i(`ZeroWord),			m6_sel_i(4'b0000), 
-						m6_we_i(1'b0),					m6_cyc_i(1'b0),
-								m6_stb_i(1'b0),					m6_ack_o(), 
-										m6_err_o(),						m6_rty_o(),
-                                        
-                                        
-		m7_data_i(`ZeroWord),			m7_data_o(), 
-				m7_addr_i(`ZeroWord),			m7_sel_i(4'b0000), 
-						m7_we_i(1'b0),					m7_cyc_i(1'b0),
-								m7_stb_i(1'b0),					m7_ack_o(), 
-										m7_err_o(),						m7_rty_o(),
+
+		m4_data_i(`ZeroWord), 			m4_data_o(), 
+		m4_addr_i(`ZeroWord), 			m4_sel_i(4'b0000), 
+		m4_we_i(1'b0), 					m4_cyc_i(1'b0),
+		m4_stb_i(1'b0), 				m4_ack_o(), 
+		m4_err_o(), 					m4_rty_o(),
+
+		m5_data_i(`ZeroWord), 			m5_data_o(), 
+		m5_addr_i(`ZeroWord), 			m5_sel_i(4'b0000), 
+		m5_we_i(1'b0), 					m5_cyc_i(1'b0),
+		m5_stb_i(1'b0), 				m5_ack_o(), 
+		m5_err_o(), 					m5_rty_o(),
+
+		m6_data_i(`ZeroWord), 			m6_data_o(), 
+		m6_addr_i(`ZeroWord), 			m6_sel_i(4'b0000), 
+		m6_we_i(1'b0), 					m6_cyc_i(1'b0),
+		m6_stb_i(1'b0), 				m6_ack_o(), 
+		m6_err_o(), 					m6_rty_o(),
+
+		m7_data_i(`ZeroWord), 			m7_data_o(), 
+		m7_addr_i(`ZeroWord), 			m7_sel_i(4'b0000), 
+		m7_we_i(1'b0), 					m7_cyc_i(1'b0),
+		m7_stb_i(1'b0), 				m7_ack_o(), 
+		m7_err_o(), 					m7_rty_o(),
 
 
 
 
 
+		//s0 sdram controller
+		s0_data_i(s0_data_i),			s0_data_o(s0_data_o),
+		s0_addr_o(s0_addr_o),			s0_sel_o(s0_sel_o),
+		s0_we_o(s0_we_o),				s0_cyc_o(s0_cyc_o),
+		s0_stb_o(s0_stb_o),				s0_ack_i(s0_ack_i),
+		s0_err_i(1'b0),					s0_rty_i(1'b0),
 
-	s1_data_i(), s1_data_o(), s1_addr_o(), s1_sel_o(), s1_we_o(), s1_cyc_o(),
-	s1_stb_o(), s1_ack_i(), s1_err_i(), s1_rty_i(),
+		//s1 uart controller
+		s1_data_i(s1_data_i),			s1_data_o(s1_data_o),
+		s1_addr_o(s1_addr_o),			s1_sel_o(s1_sel_o),
+		s1_we_o(s1_we_o),				s1_cyc_o(s1_cyc_o),
+		s1_stb_o(s1_stb_o),				s1_ack_i(s1_ack_i),
+		s1_err_i(1'b0),					s1_rty_i(1'b0),
 
+		//s2 gpio controller
+		s2_data_i(s2_data_i),			s2_data_o(s2_data_o),
+		s2_addr_o(s2_addr_o),			s2_sel_o(s2_sel_o),
+		s2_we_o(s2_we_o),				s2_cyc_o(s2_cyc_o),
+		s2_stb_o(s2_stb_o),				s2_ack_i(s2_ack_i),
+		s2_err_i(1'b0),					s2_rty_i(1'b0),
 
+		//s3 flash controller
+		s3_data_i(s3_data_i),			s3_data_o(s3_data_o),
+		s3_addr_o(s3_addr_o),			s3_sel_o(s3_sel_o),
+		s3_we_o(s3_we_o),				s3_cyc_o(s3_cyc_o),
+		s3_stb_o(s3_stb_o),				s3_ack_i(s3_ack_i),
+		s3_err_i(1'b0),					s3_rty_i(1'b0),
 
-		s10_data_i(), s10_data_o(), s10_addr_o(), s10_sel_o(), s10_we_o(), s10_cyc_o(),
-	s10_stb_o(), s10_ack_i(), s10_err_i(), s10_rty_i(),
+		s4_data_i(`ZeroWord),			s4_data_o(), 
+		s4_addr_o(), 					s4_sel_o(), 
+		s4_we_o(), 						s4_cyc_o(),
+		s4_stb_o(), 					s4_ack_i(1'b0), 
+		s4_err_i(1'b0), 				s4_rty_i(1'b0),
 
+		s5_data_i(`ZeroWord),			s5_data_o(), 
+		s5_addr_o(), 					s5_sel_o(), 
+		s5_we_o(), 						s5_cyc_o(),
+		s5_stb_o(), 					s5_ack_i(1'b0), 
+		s5_err_i(1'b0), 				s5_rty_i(1'b0),
 
+		s6_data_i(`ZeroWord),			s6_data_o(), 
+		s6_addr_o(), 					s6_sel_o(), 
+		s6_we_o(), 						s6_cyc_o(),
+		s6_stb_o(), 					s6_ack_i(1'b0), 
+		s6_err_i(1'b0), 				s6_rty_i(1'b0),
 
+		s7_data_i(`ZeroWord),			s7_data_o(), 
+		s7_addr_o(), 					s7_sel_o(), 
+		s7_we_o(), 						s7_cyc_o(),
+		s7_stb_o(), 					s7_ack_i(1'b0), 
+		s7_err_i(1'b0), 				s7_rty_i(1'b0),
 
+		s8_data_i(`ZeroWord),			s8_data_o(), 
+		s8_addr_o(), 					s8_sel_o(), 
+		s8_we_o(), 						s8_cyc_o(),
+		s8_stb_o(), 					s8_ack_i(1'b0), 
+		s8_err_i(1'b0), 				s8_rty_i(1'b0),
 
+		s9_data_i(`ZeroWord),			s9_data_o(), 
+		s9_addr_o(), 					s9_sel_o(), 
+		s9_we_o(), 						s9_cyc_o(),
+		s9_stb_o(), 					s9_ack_i(1'b0), 
+		s9_err_i(1'b0), 				s9_rty_i(1'b0),
 
-)
+		s10_data_i(`ZeroWord),			s10_data_o(), 
+		s10_addr_o(), 					s10_sel_o(), 
+		s10_we_o(), 					s10_cyc_o(),
+		s10_stb_o(), 					s10_ack_i(1'b0), 
+		s10_err_i(1'b0), 				s10_rty_i(1'b0),
 
+		s11_data_i(`ZeroWord),			s11_data_o(), 
+		s11_addr_o(), 					s11_sel_o(), 
+		s11_we_o(), 					s11_cyc_o(),
+		s11_stb_o(), 					s11_ack_i(1'b0), 
+		s11_err_i(1'b0), 				s11_rty_i(1'b0),
+
+		s12_data_i(`ZeroWord),			s12_data_o(), 
+		s12_addr_o(), 					s12_sel_o(), 
+		s12_we_o(), 					s12_cyc_o(),
+		s12_stb_o(), 					s12_ack_i(1'b0), 
+		s12_err_i(1'b0), 				s12_rty_i(1'b0),
+
+		s13_data_i(`ZeroWord),			s13_data_o(), 
+		s13_addr_o(), 					s13_sel_o(), 
+		s13_we_o(), 					s13_cyc_o(),
+		s13_stb_o(), 					s13_ack_i(1'b0), 
+		s13_err_i(1'b0), 				s13_rty_i(1'b0),
+
+		s14_data_i(`ZeroWord),			s14_data_o(), 
+		s14_addr_o(), 					s14_sel_o(), 
+		s14_we_o(), 					s14_cyc_o(),
+		s14_stb_o(), 					s14_ack_i(1'b0), 
+		s14_err_i(1'b0), 				s14_rty_i(1'b0),
+
+		s15_data_i(`ZeroWord),			s15_data_o(), 
+		s15_addr_o(), 					s15_sel_o(), 
+		s15_we_o(), 					s15_cyc_o(),
+		s15_stb_o(), 					s15_ack_i(1'b0), 
+		s15_err_i(1'b0), 				s15_rty_i(1'b0)
+
+		);
 
 endmodule
