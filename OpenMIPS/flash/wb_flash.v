@@ -1,47 +1,49 @@
 
 module flash_top(
     //Wishbone
-    wb_clk_i, wb_rst_i, wb_adr_i, wb_dat_o, wb_dat_i, wb_sel_i, wb_we_i,
-    wb_stb_i, wb_cyc_i, wb_ack_o,
+    input wire wb_clk_i,
+	 input wire wb_rst_i, 
+	 input wire[31:0] wb_adr_i,
+	 output reg[31:0] wb_dat_o,
+	 input wire[31:0] wb_dat_i,
+	 input wire[3:0] wb_sel_i,
+	 input wire wb_we_i,
+    input wire wb_stb_i,
+	 output wire wb_cyc_i,
+	 output reg wb_ack_o,
     //flash
-    flash_adr_o, flash_dat_i, flash_rst,
-    flash_oe, flash_ce, flash_we
+    output reg[31:0] flash_adr_o,
+	 input wire[7:0] flash_dat_i,
+	 output wire flash_rst,
+    output wire flash_oe,
+	 output wire flash_ce,
+	 output wire flash_we,
+	 
+	 output wire flash_byte_cfg
 );
 
     // Default address and data bus width
-    parameter aw = 19;   // number of address-bits
-    parameter dw = 32;   // number of data-bits
-    parameter ws = 4'h5; // number of wait-states
+    //parameter aw = 19;   // number of address-bits
+    //parameter dw = 32;   // number of data-bits
+    //parameter ws = 5'h5; // number of wait-states
 
     // FLASH interface
-    input   wb_clk_i;
-    input   wb_rst_i;
-    input   [31:0] wb_adr_i;
-    output reg [dw-1:0] wb_dat_o;
-    input   [dw-1:0] wb_dat_i;
-    input   [3:0] wb_sel_i;
-    input   wb_we_i;
-    input   wb_stb_i;
-    input   wb_cyc_i;
-    output reg wb_ack_o;
-    output reg [31:0] flash_adr_o;
-    input   [7:0] flash_dat_i;
-    output  flash_rst;
-    output  flash_oe;
-    output  flash_ce;
-    output  flash_we;
+
+
     reg [4:0] waitstate;
-    wire    [1:0] adr_low;
+    //wire    [1:0] adr_low;	 
 
     // Wishbone read/write accesses
     wire wb_acc = wb_cyc_i & wb_stb_i;    // WISHBONE access
-    wire wb_wr  = wb_acc & wb_we_i;       // WISHBONE write access
+    //wire wb_wr  = wb_acc & wb_we_i;       // WISHBONE write access
     wire wb_rd  = wb_acc & !wb_we_i;      // WISHBONE read access
-
+	 
+	 assign flash_byte_cfg = 1'b0;
     assign flash_ce = !wb_acc;
     assign flash_we = 1'b1;
     assign flash_oe = !wb_rd;
     assign flash_rst = !wb_rst_i;
+	 
 
     always @(posedge wb_clk_i) begin
         if( wb_rst_i == 1'b1 ) begin
@@ -59,21 +61,22 @@ module flash_top(
             flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b00};
         end else begin
             waitstate <= waitstate + 5'h1;
-			if(waitstate == 5'h5) begin
-			    wb_dat_o[31:24] <= flash_dat_i;
-			    flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b01};
-			end else if(waitstate == 5'ha) begin
-			    wb_dat_o[23:16] <= flash_dat_i;
-			    flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b10};
-			end else if(waitstate == 5'hf) begin
-			    wb_dat_o[15:8] <= flash_dat_i;
-				flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b11};
-			end else if(waitstate == 5'h14) begin
-			    wb_dat_o[7:0] <= flash_dat_i;
-                wb_ack_o <= 1'b1;
-			end else if(waitstate == 5'h19) begin
-                wb_ack_o <= 1'b0;
-                waitstate <= 5'h0;
+				
+				if(waitstate == 5'h5) begin
+					wb_dat_o[31:24] <= flash_dat_i;
+					flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b01};
+				end else if(waitstate == 5'ha) begin
+					wb_dat_o[23:16] <= flash_dat_i;
+					flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b10};
+				end else if(waitstate == 5'hf) begin
+					wb_dat_o[15:8] <= flash_dat_i;
+					flash_adr_o <= {10'b0000000000,wb_adr_i[21:2],2'b11};
+				end else if(waitstate == 5'h14) begin
+					wb_dat_o[7:0] <= flash_dat_i;
+					wb_ack_o <= 1'b1;
+				end else if(waitstate == 5'h15) begin
+					wb_ack_o <= 1'b0;
+					waitstate <= 5'h0;
             end
         end
     end

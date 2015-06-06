@@ -17,6 +17,7 @@ module openmips_min_sopc(
 	output wire			flash_rst_o,
 	output wire			flash_oe_o,
 	output wire			flash_ce_o,
+	output wire			flash_byte_cfg,
 
 	output wire			sdr_clk_o,
 	output wire			sdr_cs_n_o,
@@ -153,7 +154,9 @@ module openmips_min_sopc(
 
 		.flash_adr_o(flash_addr_o),			.flash_dat_i(flash_data_i),
 		.flash_rst(flash_rst_o),			.flash_oe(flash_oe_o),
-		.flash_ce(flash_ce_o),				.flash_we(flash_we_o)
+		.flash_ce(flash_ce_o),				.flash_we(flash_we_o),
+		
+		.flash_byte_cfg(flash_byte_cfg)
 		);
 
 
