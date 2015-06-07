@@ -6,6 +6,8 @@
 .project
 .metadata
 bin/
+stage/
+output_files/
 tmp/
 *.tmp
 *.bak
